@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="모집"
+        android:enabled="true"
+        android:icon="@drawable/ic_recruit_false"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:title="후기"
+        android:enabled="true"
+        android:icon="@drawable/ic_review_false"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:title="프로필"
+        android:enabled="true"
+        android:icon="@drawable/ic_person_false"
+        app:showAsAction="ifRoom"
+        />
+</menu>

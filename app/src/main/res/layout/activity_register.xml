@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.RegisterActivity">
+
+    <data>
+
+        <variable
+            name="RegisterActivity"
+            type="com.example.hackathonproject.view.RegisterActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_register_title"
+            style="@style/LinearLayout"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="140dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="135dp"
+                android:layout_height="89dp"
+                android:src="@drawable/logo_register" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_register_title">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_register_name"
+                style="@style/TextInputLayout"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/et_register_name"
+                    style="@style/EditText"
+                    android:layout_width="370dp"
+                    android:hint="별명" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_register_title">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_register_year"
+                style="@style/TextInputLayout"
+                android:layout_marginTop="10dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/et_register_year"
+                    style="@style/EditText"
+                    android:inputType="date"
+                    android:layout_width="90dp"
+                    android:hint="태어난 연도" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_register_month"
+                style="@style/TextInputLayout"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/et_register_month"
+                    style="@style/EditText"
+                    android:inputType="date"
+                    android:layout_width="100dp"
+                    android:hint="태어난 월" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_register_day"
+                style="@style/TextInputLayout"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/et_register_day"
+                    style="@style/EditText"
+                    android:inputType="date"
+                    android:layout_width="100dp"
+                    android:hint="태어난 일" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_register_title">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_register_gender"
+                style="@style/TextInputLayout"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/et_register_gender"
+                    style="@style/EditText"
+                    android:layout_width="370dp"
+                    android:hint="성별 여자 혹은 남자" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_register_title">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_register_id"
+                style="@style/TextInputLayout"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/et_register_id"
+                    style="@style/EditText"
+                    android:layout_width="370dp"
+                    android:hint="아이디" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_register_title">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_register_password"
+                style="@style/TextInputLayout"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/et_register_password"
+                    style="@style/EditText"
+                    android:layout_width="370dp"
+                    android:hint="비밀번호" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_login_button"
+            style="@style/LinearLayout"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.9">
+
+            <Button
+                android:id="@+id/bt_login_login"
+                style="@style/Button_Primary"
+                android:text="회원가입" />
+
+            <Button
+                android:id="@+id/bt_login_register"
+                style="@style/Button_White"
+                android:layout_marginTop="12dp"
+                android:text="로그인" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

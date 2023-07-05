@@ -2,7 +2,7 @@ package com.example.hackathonproject.model
 
 import java.util.Date
 
-data class RecruitData(
+class RecruitData(
     val title: String,
     val content: String,
     val place: String,

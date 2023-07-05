@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import com.example.hackathonproject.R
+import com.example.hackathonproject.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -15,22 +16,42 @@ class MainActivity : AppCompatActivity() {
     private val bottomNav: BottomNavigationView by lazy {
         findViewById(R.id.bottomNav)
     }
+    private lateinit var binding: ActivityMainBinding
+
+    private lateinit var recruitFragment: RecruitFragment
+    private lateinit var reviewFragment: ReviewFragment
+    private lateinit var profileFragment: ProfileFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().add(frameLayout.id, RecruitFragment()).commit()
 
-        bottomNav.setOnNavigationItemSelectedListener {
-            supportFragmentManager.beginTransaction().replace(
-                frameLayout.id, when (it.itemId) {
-                    R.id.menu_recruit -> RecruitFragment()
-                    R.id.menu_review -> ReviewFragment()
-                    else -> ProfileFragment()
-                }
-            )
-            true
+        binding.bottomNav.setOnNavigationItemSelectedListener(onBottomNavigationSelectedListener)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        supportFragmentManager.beginTransaction().replace(R.id.frameLayout, RecruitFragment()).commit()
+    }
+
+    private val onBottomNavigationSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
+        when(it.itemId) {
+            R.id.menu_recruit -> {
+                recruitFragment = RecruitFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.frameLayout, recruitFragment).commit()
+            }
+            R.id.menu_review -> {
+                reviewFragment = ReviewFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.frameLayout, reviewFragment).commit()
+            }
+            R.id.menu_profile -> {
+                profileFragment = ProfileFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.frameLayout, profileFragment).commit()
+            }
         }
+        true
     }
 }

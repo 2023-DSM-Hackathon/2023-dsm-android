@@ -1,14 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".view.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_profile_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="마이페이지"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_top" />
+
+        <ImageView
+            android:id="@+id/btn_profile_info"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_profile_line"
+            android:layout_width="360dp"
+            android:layout_height="0.3dp"
+            android:layout_marginTop="13dp"
+            android:background="@color/color_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_title" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="60dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/ic_person_true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_profile_line" />
+
+        <TextView
+            android:id="@+id/tv_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="68dp"
+            android:text="이름 : 홍길등"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/interbold"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/view_profile_line" />
+
+        <TextView
+            android:id="@+id/tv_profile_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="id : dafdsfsf"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/interbold"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile_name" />
+
+        <TextView
+            android:id="@+id/tv_profile_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="birth : 2023-29-29"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="40dp"
+            android:fontFamily="@font/interbold"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_id" />
+
+        <Button
+            android:id="@+id/btn_profile_recruit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="50dp"
+            style="@style/Button_White_No_Stroke"
+            android:text="내가 모집한 줍깅"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <Button
+            android:id="@+id/btn_profile_submit_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="50dp"
+            style="@style/Button_White_No_Stroke"
+            android:textColor="@color/black"
+            android:text="참가 신청한 줍깅"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_profile_recruit" />
+
+        <Button
+            android:id="@+id/btn_profile_my_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="50dp"
+            style="@style/Button_White_No_Stroke"
+            android:textColor="@color/black"
+            android:text="내가 작성한 후기글"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_profile_submit_review" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_profile_recruit"
+            android:backgroundTint="@color/color_main"
+            app:cardCornerRadius="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_profile_my_review">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_crown"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="줍깅 모집"
+                android:textStyle="bold"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="14dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5/4"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="40dp"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_profile_count"
+            android:backgroundTint="@color/color_main"
+            app:cardCornerRadius="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_profile_recruit">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_crown"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="줍깅 참여 횟수"
+                android:textStyle="bold"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="14dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5/10"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="40dp"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_profile_submit"
+            android:backgroundTint="@color/color_main"
+            app:cardCornerRadius="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_profile_count">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_crown"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="후기글 작성"
+                android:textStyle="bold"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="14dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5/4"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="40dp"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

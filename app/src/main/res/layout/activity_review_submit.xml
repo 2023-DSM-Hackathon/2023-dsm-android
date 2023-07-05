@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.SubmitActivity">
+    tools:context=".view.ReviewSubmitActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -62,102 +62,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout_submit_date"
-                style="@style/TextInputLayout"
-                android:layout_width="160dp"
-                android:layout_marginHorizontal="16dp"
-                app:hintEnabled="false">
-
-                <EditText
-                    android:id="@+id/et_submit_date"
-                    style="@style/EditText"
-                    android:hint="날짜 ex) 20230820"
-                    android:inputType="date" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout_submit_time"
-                style="@style/TextInputLayout"
-                android:layout_width="160dp"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginLeft="60dp"
-                app:hintEnabled="false">
-
-                <EditText
-                    android:id="@+id/et_submit_time"
-                    style="@style/EditText"
-                    android:hint="모집 시간 ex) 1420"
-                    android:inputType="time" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout_submit_place"
-                style="@style/TextInputLayout"
-                app:hintEnabled="false">
-
-                <EditText
-                    android:id="@+id/et_submit_place"
-                    style="@style/EditText"
-                    android:hint="장소" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout_submit_person_count"
-                style="@style/TextInputLayout"
-                app:hintEnabled="false"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-                <EditText
-                    android:id="@+id/et_submit_person_count"
-                    style="@style/EditText"
-                    android:hint="모집 인원 수 ex) 19"
-                    android:inputType="number" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -165,7 +69,7 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout_submit_content"
@@ -188,18 +92,27 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사진 업로드"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+
         <Button
             style="@style/Button_Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="20dp"
-            android:fontFamily="@font/interbold"
             android:text="게시하기"
+            android:fontFamily="@font/interbold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

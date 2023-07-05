@@ -6,42 +6,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.hackathonproject.model.RecruitData
+import com.example.hackathonproject.api.ApiProvider
+import com.example.hackathonproject.model.RecruitResponse
 import com.example.hackathonproject.databinding.FragmentRecruitBinding
+import com.example.hackathonproject.model.Feeds
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class RecruitFragment : Fragment() {
-
-    lateinit var recruitAdapter: RecruitAdapter
-    val datas = arrayListOf<RecruitData>(
-        RecruitData("dsfs", "sdfsfa", "dsafass", "dfa", "dsfasa", 129),
-        RecruitData("dsfs", "sdfsfa", "dsafass", "dfa", "dsfasa", 129),
-        RecruitData(
-            "dsfs", "sdfsfa", "dsafass", "dfa", "dsfasa", 129
-        ),
-
-
-        )
-
+    lateinit var feeds: ArrayList<Feeds>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentRecruitBinding.inflate(inflater, container, false)
 
+
+        binding.rvRecruit.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+
+        ApiProvider.retrofit.getFeeds()
+            .enqueue(object : Callback, retrofit2.Callback<RecruitResponse> {
+                override fun onResponse(
+                    call: Call<RecruitResponse>,
+                    response: Response<RecruitResponse>
+                ) {
+                    when (response.code()) {
+                        200 -> {
+                            binding.rvRecruit.adapter = RecruitAdapter(feeds = feeds)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<RecruitResponse>, t: Throwable) {
+                    Toast.makeText(activity, "로그인에 실패했습니다", Toast.LENGTH_SHORT).show()
+                }
+            })
+
         binding.fabRecruitSubmit.setOnClickListener {
+
             var intent = Intent(activity, SubmitActivity::class.java)
             startActivity(intent)
         }
 
-//        binding.rvRecruit.adapter = recruitAdapter
-//
-//        val lm = LinearLayoutManager(activity)
-//        binding.rvRecruit.layoutManager = lm
-//        binding.rvRecruit.setHasFixedSize(true)
 
 
         return binding.root
     }
 }
-

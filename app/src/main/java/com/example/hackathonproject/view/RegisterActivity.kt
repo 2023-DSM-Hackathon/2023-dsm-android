@@ -29,6 +29,8 @@ class RegisterActivity : AppCompatActivity() {
             val nickname = binding.etRegisterName.text.toString()
             val birth_date =
                 binding.etRegisterYear.text.toString() + "-" + binding.etRegisterMonth.text.toString() + "-" + binding.etRegisterDay.text.toString()
+
+
             val sex = if (binding.etRegisterGender.text.toString() == "여자") {
                 "FEMALE"
             } else if (binding.etRegisterGender.text.toString() == "남자") {
@@ -37,11 +39,10 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(
                     this@RegisterActivity, "성별을 다시 입력해주세요", Toast.LENGTH_SHORT
                 ).show()
+
             }
             val account_id = binding.etRegisterId.text.toString()
             val password = binding.etRegisterPassword.text.toString()
-
-            Log.d("sdfsfsafsfsafadsfasfasf", nickname + birth_date + sex + account_id + password)
 
             if (nickname == "" || birth_date == "" || sex == "" || account_id == "" || password == "") Toast.makeText(
                 this@RegisterActivity, "회원 정보를 다시 입력해주세요", Toast.LENGTH_SHORT
@@ -51,31 +52,30 @@ class RegisterActivity : AppCompatActivity() {
                     RegisterRequest(
                         nickname, birth_date, sex.toString(), account_id, password
                     )
-                ).enqueue(object: retrofit2.Callback<Void> {
+                ).enqueue(object : retrofit2.Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        when (response!!.code()) {
+                        when (response.code()) {
                             201 -> {
-                                Log.d("dfasfasfsa", response.code().toString())
                                 startActivity(intent)
                                 Toast.makeText(
                                     this@RegisterActivity, "회원가입을 성공했습니다!", Toast.LENGTH_SHORT
                                 ).show()
+                                Log.d("dsafsafsfsaf", response.code().toString())
                             }
 
                             else -> {
-                                Log.d("dfasfasfsa", response.code().toString())
-
                                 Toast.makeText(
                                     this@RegisterActivity, "회원가입에 실패했습니다..", Toast.LENGTH_SHORT
                                 ).show()
+                                Log.d("dsafsafsfsaf", response.code().toString())
                             }
                         }
                     }
 
-                    override fun onFailure(call: Call<Void>?, t: Throwable?) {
+                    override fun onFailure(call: Call<Void>, t: Throwable?) {
                         Toast.makeText(this@RegisterActivity, "회원가입에 실패했습니다..", Toast.LENGTH_SHORT)
                             .show()
-                        Log.d("dfasfasfsa", t?.message.toString())
+                        Log.d("dsafsafsfsaf", t?.message.toString())
                     }
 
                 })

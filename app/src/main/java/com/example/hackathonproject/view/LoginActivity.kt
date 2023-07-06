@@ -3,12 +3,14 @@ package com.example.hackathonproject.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.hackathonproject.api.ApiProvider
 import com.example.hackathonproject.databinding.ActivityLoginBinding
 import com.example.hackathonproject.model.LoginRequest
 import com.example.hackathonproject.model.LoginResponse
 import retrofit2.Call
+import com.example.hackathonproject.util.ACCESS_TOKEN
 import retrofit2.Response
 import javax.security.auth.callback.Callback
 
@@ -16,6 +18,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        var access_token: String
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -40,12 +44,14 @@ class LoginActivity : AppCompatActivity() {
                         ) {
                             when (response.code()) {
                                 200 -> {
-                                    val access_token = response.body()?.access_token
+                                    ACCESS_TOKEN =
+                                        "Bearer " + response.body()?.access_token.toString()
                                     Toast.makeText(
                                         this@LoginActivity, "로그인에 성공했습니다!", Toast.LENGTH_SHORT
                                     ).show()
                                     startActivity(intent)
                                     finish()
+
                                 }
 
                                 else -> {

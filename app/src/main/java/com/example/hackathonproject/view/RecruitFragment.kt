@@ -17,41 +17,35 @@ import retrofit2.Response
 import javax.security.auth.callback.Callback
 
 class RecruitFragment : Fragment() {
-    lateinit var feeds: ArrayList<Feeds>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentRecruitBinding.inflate(inflater, container, false)
 
-
         binding.rvRecruit.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
-        ApiProvider.retrofit.getFeeds()
-            .enqueue(object : Callback, retrofit2.Callback<RecruitResponse> {
-                override fun onResponse(
-                    call: Call<RecruitResponse>,
-                    response: Response<RecruitResponse>
-                ) {
-                    when (response.code()) {
-                        200 -> {
-                            binding.rvRecruit.adapter = RecruitAdapter(feeds = feeds)
-                        }
+
+        ApiProvider.retrofit.getFeeds().enqueue(object : retrofit2.Callback<RecruitResponse> {
+            override fun onResponse(
+                call: Call<RecruitResponse>, response: Response<RecruitResponse>
+            ) {
+                when (response.code()) {
+                    200 -> {
+                        binding.rvRecruit.adapter = RecruitAdapter(RecruitResponse(feeds = response.body()!!.feeds))
+                        binding.rvRecruit.adapter?.notifyItemChanged(response.body()!!.feeds.size)
                     }
                 }
-
-                override fun onFailure(call: Call<RecruitResponse>, t: Throwable) {
-                    Toast.makeText(activity, "로그인에 실패했습니다", Toast.LENGTH_SHORT).show()
-                }
-            })
+            }
+            override fun onFailure(call: Call<RecruitResponse>, t: Throwable) {
+                Toast.makeText(activity, "로그인에 실패했습니다", Toast.LENGTH_SHORT).show()
+            }
+        })
 
         binding.fabRecruitSubmit.setOnClickListener {
-
             var intent = Intent(activity, SubmitActivity::class.java)
             startActivity(intent)
         }
-
-
 
         return binding.root
     }

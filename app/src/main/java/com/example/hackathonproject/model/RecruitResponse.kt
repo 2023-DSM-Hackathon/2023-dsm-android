@@ -1,7 +1,7 @@
 package com.example.hackathonproject.model
 
 data class RecruitResponse(
-    val feeds: ArrayList<Feeds>,
+    var feeds: ArrayList<Feeds>,
 )
 
 data class Feeds(

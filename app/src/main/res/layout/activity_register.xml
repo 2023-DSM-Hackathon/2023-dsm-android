@@ -58,8 +58,9 @@
             style="@style/LinearLayoutHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_register_title">
 
@@ -72,44 +73,44 @@
                 <EditText
                     android:id="@+id/et_register_year"
                     style="@style/EditText"
+                    android:layout_width="110dp"
+                    android:hint="태어난 연도"
                     android:inputType="number"
-                    android:maxLength="4"
-                    android:layout_width="90dp"
-                    android:hint="태어난 연도" />
+                    android:maxLength="4" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout_register_month"
                 style="@style/TextInputLayout"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 app:hintEnabled="false">
 
                 <EditText
                     android:id="@+id/et_register_month"
                     style="@style/EditText"
-                    android:inputType="number"
-                    android:maxLength="2"
                     android:layout_width="100dp"
-                    android:hint="태어난 월" />
+                    android:hint="태어난 월"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout_register_day"
                 style="@style/TextInputLayout"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 app:hintEnabled="false">
 
                 <EditText
                     android:id="@+id/et_register_day"
                     style="@style/EditText"
-                    android:inputType="number"
-                    android:maxLength="2"
                     android:layout_width="100dp"
-                    android:hint="태어난 일" />
+                    android:hint="태어난 일"
+                    android:inputType="number"
+                    android:maxLength="2" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
